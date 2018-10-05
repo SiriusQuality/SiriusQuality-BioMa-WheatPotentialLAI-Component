@@ -1,0 +1,65 @@
+<?xml version="1.0" standalone="yes"?>
+<StrategyDefinition>
+  <Global>
+    <SimpleStrategy />
+    <CompositeStrategy />
+    <DataInterfacesDLL>C:\Users\mancealo\Documents\GitSiriusCode\SiriusCode\Development2\Code\SiriusQuality-WheatLAI\bin\Debug\SiriusQuality-WheatLAI.dll</DataInterfacesDLL>
+    <StrategiesDLL />
+    <IStrategyComponentName>IStrategySiriusQualityWheatLAI</IStrategyComponentName>
+  </Global>
+  <General>
+    <Domain>Crop</Domain>
+    <ModelType />
+    <NameSpace>SiriusQualityWheatLAI.Strategies</NameSpace>
+    <StrategyName>LaminaExpansionThermalTime</StrategyName>
+    <StrategyDescription>Calculate Expansion Thermal Time Duration</StrategyDescription>
+    <IsContext />
+    <TimeSteps />
+    <AuthorFirstRelease>pierre.martre</AuthorFirstRelease>
+    <Institution>INRA</Institution>
+    <Email>pierre.martre@inra.fr</Email>
+    <DateFirstRelease>7/26/2018</DateFirstRelease>
+    <AuthorRevision />
+    <EmailAuthorRevision />
+    <DateRevision />
+  </General>
+  <Inputs>
+    <Variable>Phyllochron</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>index</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Inputs>
+  <Outputs>
+    <Variable>TTGroLamina</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Outputs>
+  <Parameters>
+    <VarName>PexpL</VarName>
+    <Description>Phyllochronic duration of leaf lamina expansion</Description>
+    <MaxValue>30</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>1.1</DefaultValue>
+    <Units>Phyllochron</Units>
+    <ValueType>Double</ValueType>
+  </Parameters>
+  <LoadedAssemblies>
+    <Name>SiriusQuality-WheatLAI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>CRA.ModelLayer, Version=1.0.5212.29139, Culture=neutral, PublicKeyToken=null</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>CRA.AgroManagement2014, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Name>
+  </LoadedAssemblies>
+</StrategyDefinition>

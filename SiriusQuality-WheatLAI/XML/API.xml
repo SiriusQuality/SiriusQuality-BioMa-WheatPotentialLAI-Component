@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="yes"?>
+<API_Definitions>
+  <Specifications>
+    <Col_FileName>C:\Users\mancealo\Documents\GitSiriusCode\SiriusCode\Development2\Code\SiriusQuality-WheatLAI\XML\API.xml</Col_FileName>
+    <Col_Postfix>SiriusQualityWheatLAI</Col_Postfix>
+    <Col_MainMethod>Estimate</Col_MainMethod>
+    <Col_MethodParameters>( WheatLAIState w, WheatLeafState w1, WheatLeafState w2, ActEvents ae);</Col_MethodParameters>
+    <Col_NameSpace>SiriusQualityWheatLAI</Col_NameSpace>
+  </Specifications>
+  <DomainClasses>
+    <Col_ClassFileNames>WheatLAIState</Col_ClassFileNames>
+  </DomainClasses>
+  <DomainClasses>
+    <Col_ClassFileNames>WheatLeafState</Col_ClassFileNames>
+  </DomainClasses>
+</API_Definitions>

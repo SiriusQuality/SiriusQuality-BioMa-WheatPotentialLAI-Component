@@ -1,0 +1,181 @@
+<?xml version="1.0" standalone="yes"?>
+<WheatLeafState>
+  <xs:schema id="WheatLeafState" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="WheatLeafState" msdata:IsDataSet="true" msdata:Locale="en-US">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="VarInfoVariables">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Name" type="xs:string" minOccurs="0" />
+                <xs:element name="MinValue" type="xs:double" minOccurs="0" />
+                <xs:element name="MaxValue" type="xs:double" minOccurs="0" />
+                <xs:element name="DefaultValue" type="xs:double" minOccurs="0" />
+                <xs:element name="Units" type="xs:string" minOccurs="0" />
+                <xs:element name="Type" type="xs:string" minOccurs="0" />
+                <xs:element name="Description" type="xs:string" minOccurs="0" />
+                <xs:element name="URL" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Description">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="DomainClassNameSpace" type="xs:string" minOccurs="0" />
+                <xs:element name="DomainTypeName" type="xs:string" minOccurs="0" />
+                <xs:element name="DomainTypeURL" type="xs:string" minOccurs="0" />
+                <xs:element name="DomainTypeDescription" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <VarInfoVariables>
+    <Name>State</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>3</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>dimensionless</Units>
+    <Type>List&lt;int&gt;</Type>
+    <Description>State of the leaf, 0:Growing, 1:Mature,2:Senescing,3:Dead</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>PreviousState</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>3</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>dimensionless</Units>
+    <Type>List&lt;int&gt;</Type>
+    <Description>Previous State of the leaf, 0:Growing, 1:Mature,2:Senescing,3:Dead</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>isPrematurelyDying</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>1</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>dimensionless</Units>
+    <Type>List&lt;int&gt;</Type>
+    <Description>Flag</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>TTGroLamina</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>3000</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>°Cd</Units>
+    <Type>List&lt;double&gt;</Type>
+    <Description>Thermal Time when the Lamina grows</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>MaxAI</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>1</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>mm²/mm²</Units>
+    <Type>List&lt;double&gt;</Type>
+    <Description>Largest area actually achieved by leaf Layer</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>TTsen</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>3000</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>°Cd</Units>
+    <Type>List&lt;double&gt;</Type>
+    <Description>Thermal Time when Leaf Start Senescing</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>TTem</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>3000</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>°Cd</Units>
+    <Type>List&lt;double&gt;</Type>
+    <Description>Thermal Time at emergence</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>LaminaAI</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>1</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>mm²/mm²</Units>
+    <Type>List&lt;double&gt;</Type>
+    <Description>Lamina Area Index</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>SheathAI</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>1</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>mm²/mm²</Units>
+    <Type>List&lt;double&gt;</Type>
+    <Description>Sheath Area Index</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>GAI</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>1</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>mm²/mm²</Units>
+    <Type>List&lt;double&gt;</Type>
+    <Description>Green Area Index</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>TTmat</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>3000</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>°Cd</Units>
+    <Type>List&lt;double&gt;</Type>
+    <Description>Thermal Time at maturity</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>laminaSpecificN</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>1000</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>mg(N)/m²(leaf)</Units>
+    <Type>List&lt;double&gt;</Type>
+    <Description>Lamina Specific N</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>Phyllochron</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>10</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>°Cd/leaf</Units>
+    <Type>List&lt;double&gt;</Type>
+    <Description>Leaf layer Phyllochron</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>isSmallPhytomer</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>1</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>dimensionless</Units>
+    <Type>List&lt;int&gt;</Type>
+    <Description>1 if the layer's phytomer is "small"</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <Description>
+    <DomainClassNameSpace>SiriusQualityWheatLAI</DomainClassNameSpace>
+    <DomainTypeName>WheatLeafState</DomainTypeName>
+    <DomainTypeURL>http://</DomainTypeURL>
+    <DomainTypeDescription>Domain class description</DomainTypeDescription>
+  </Description>
+</WheatLeafState>

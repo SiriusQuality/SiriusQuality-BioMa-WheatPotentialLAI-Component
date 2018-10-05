@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{59336D65-9DE8-4156-B7E0-E1713A5F3F39}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SiriusQuality_WheatLAI</RootNamespace>
+    <AssemblyName>SiriusQuality-WheatLAI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CRA.AgroManagement2014">
+      <HintPath>..\..\DLLs\CRA.AgroManagement2014.dll</HintPath>
+    </Reference>
+    <Reference Include="CRA.AgroManagement2014.Impacts">
+      <HintPath>..\..\DLLs\CRA.AgroManagement2014.Impacts.dll</HintPath>
+    </Reference>
+    <Reference Include="CRA.AgroManagement2014.Rules">
+      <HintPath>..\..\DLLs\CRA.AgroManagement2014.Rules.dll</HintPath>
+    </Reference>
+    <Reference Include="CRA.Core.Preconditions">
+      <HintPath>..\..\DLLs\CRA.Core.Preconditions.dll</HintPath>
+    </Reference>
+    <Reference Include="CRA.ModelLayer">
+      <HintPath>..\..\DLLs\CRA.ModelLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\IStrategySiriusQualityWheatLAI.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="API\SiriusQualityWheatLAIAPI.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="API\TraceHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="domainClass\WheatLAIState.cs" />
+    <Compile Include="domainClass\WheatLAIStateVarInfo.cs" />
+    <Compile Include="domainClass\WheatLeafState.cs" />
+    <Compile Include="domainClass\WheatLeafStateVarInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strategies\IsSmallPhytomer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Strategies\LaminaExpansionThermalTime.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Strategies\LeafExpansionDroughtFactor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Strategies\MaturityThermalTime.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Strategies\MaximumPotentialFinalLAI.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Strategies\SenescenceThermalTime.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Strategies\WaterLimitedLeafExpansion.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Strategies\WheatLAI.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

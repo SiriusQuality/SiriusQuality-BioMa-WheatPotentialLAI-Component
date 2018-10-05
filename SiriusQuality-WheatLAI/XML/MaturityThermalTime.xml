@@ -1,0 +1,75 @@
+<?xml version="1.0" standalone="yes"?>
+<StrategyDefinition>
+  <Global>
+    <SimpleStrategy />
+    <CompositeStrategy />
+    <DataInterfacesDLL>C:\Users\mancealo\Documents\GitSiriusCode\SiriusCode\Development2\Code\SiriusQuality-WheatLAI\bin\Debug\SiriusQuality-WheatLAI.dll</DataInterfacesDLL>
+    <StrategiesDLL />
+    <IStrategyComponentName>IStrategySiriusQualityWheatLAI</IStrategyComponentName>
+  </Global>
+  <General>
+    <Domain>Crop</Domain>
+    <ModelType />
+    <NameSpace>SiriusQualityWheatLAI.Strategies</NameSpace>
+    <StrategyName>MaturityThermalTime</StrategyName>
+    <StrategyDescription>Calculate Thermal Time at Maturity</StrategyDescription>
+    <IsContext />
+    <TimeSteps />
+    <AuthorFirstRelease>pierre.martre</AuthorFirstRelease>
+    <Institution>INRA</Institution>
+    <Email>pierre.martre@inra.fr</Email>
+    <DateFirstRelease>9/28/2017</DateFirstRelease>
+    <AuthorRevision />
+    <EmailAuthorRevision />
+    <DateRevision />
+  </General>
+  <Inputs>
+    <Variable>Phyllochron</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>index</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>isSmallPhytomer</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Outputs>
+    <Variable>TTmat</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Outputs>
+  <Parameters>
+    <VarName>PlagLL</VarName>
+    <Description>Potential phyllochronic duration between end of expansion and beginning of senescence for the leaves produced after floral initiation</Description>
+    <MaxValue>30</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>5</DefaultValue>
+    <Units>leaf</Units>
+    <ValueType>Double</ValueType>
+  </Parameters>
+  <Parameters>
+    <VarName>PlagSL</VarName>
+    <Description>Potential phyllochronic duration between end of expansion and beginning of senescence for the leaves produced before floral initiation</Description>
+    <MaxValue>30</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>4</DefaultValue>
+    <Units>leaf</Units>
+    <ValueType>Double</ValueType>
+  </Parameters>
+  <LoadedAssemblies>
+    <Name>SiriusQuality-WheatLAI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>CRA.ModelLayer, Version=1.0.5212.29139, Culture=neutral, PublicKeyToken=null</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Name>
+  </LoadedAssemblies>
+</StrategyDefinition>

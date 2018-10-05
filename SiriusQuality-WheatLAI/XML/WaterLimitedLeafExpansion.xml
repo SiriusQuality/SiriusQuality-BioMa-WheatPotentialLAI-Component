@@ -1,0 +1,157 @@
+<?xml version="1.0" standalone="yes"?>
+<StrategyDefinition>
+  <Global>
+    <SimpleStrategy />
+    <CompositeStrategy />
+    <DataInterfacesDLL>C:\Users\mancealo\Documents\GitSiriusCode\SiriusCode\Development2\Code\SiriusQuality-WheatLAI\bin\Debug\SiriusQuality-WheatLAI.dll</DataInterfacesDLL>
+    <StrategiesDLL />
+    <IStrategyComponentName>IStrategySiriusQualityWheatLAI</IStrategyComponentName>
+  </Global>
+  <General>
+    <Domain>Crop</Domain>
+    <ModelType />
+    <NameSpace>SiriusQualityWheatLAI.Strategies</NameSpace>
+    <StrategyName>WaterLimitedLeafExpansion</StrategyName>
+    <StrategyDescription />
+    <IsContext>false</IsContext>
+    <TimeSteps />
+    <AuthorFirstRelease>pierre.martre</AuthorFirstRelease>
+    <Institution>INRA</Institution>
+    <Email>pierre.martre@inra.fr</Email>
+    <DateFirstRelease>9/28/2017</DateFirstRelease>
+    <AuthorRevision />
+    <EmailAuthorRevision />
+    <DateRevision />
+  </General>
+  <Inputs>
+    <Variable>cumulTTShoot</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>deltaTTShoot</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>deltaTTSenescence</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>DSF</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>DEF</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>GAI</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>TTGroLamina</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>State</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>PreviousState</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>TTsen</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>TTem</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>TTmat</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>laminaSpecificN</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>LaminaAI</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>SheathAI</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>MaxAI</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>isPrematurelyDying</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>MaximumPotentialLaminaeAI</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>MaximumPotentialSheathAI</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Inputs>
+  <Outputs>
+    <Variable>incDeltaAreaLimitSF</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Outputs>
+  <Outputs>
+    <Variable>WaterLimitedPotDeltaAIList</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Outputs>
+  <Outputs>
+    <Variable>potentialIncDeltaArea</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Outputs>
+  <Outputs>
+    <Variable>State</Variable>
+    <DomainClass>wheatleafstate1 - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Outputs>
+  <Outputs>
+    <Variable>isPrematurelyDying</Variable>
+    <DomainClass>wheatleafstate1 - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Outputs>
+  <Outputs>
+    <Variable>TT</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Outputs>
+  <Outputs>
+    <Variable>TTgroSheathList</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Outputs>
+  <Parameters>
+    <VarName>SLNmin</VarName>
+    <Description>Specific leaf Nitrogen at which LUE is null</Description>
+    <MaxValue>10</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>0.35</DefaultValue>
+    <Units>g(N)/m²(leaf)</Units>
+    <ValueType>Double</ValueType>
+  </Parameters>
+  <LoadedAssemblies>
+    <Name>SiriusQuality-WheatLAI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>CRA.ModelLayer, Version=1.0.5212.29139, Culture=neutral, PublicKeyToken=null</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>CRA.AgroManagement2014, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Name>
+  </LoadedAssemblies>
+</StrategyDefinition>

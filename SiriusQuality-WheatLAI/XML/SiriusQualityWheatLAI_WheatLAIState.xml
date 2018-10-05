@@ -1,0 +1,281 @@
+<?xml version="1.0" standalone="yes"?>
+<WheatLAIState>
+  <xs:schema id="WheatLAIState" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="WheatLAIState" msdata:IsDataSet="true" msdata:Locale="en-US">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="VarInfoVariables">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Name" type="xs:string" minOccurs="0" />
+                <xs:element name="MinValue" type="xs:double" minOccurs="0" />
+                <xs:element name="MaxValue" type="xs:double" minOccurs="0" />
+                <xs:element name="DefaultValue" type="xs:double" minOccurs="0" />
+                <xs:element name="Units" type="xs:string" minOccurs="0" />
+                <xs:element name="Type" type="xs:string" minOccurs="0" />
+                <xs:element name="Description" type="xs:string" minOccurs="0" />
+                <xs:element name="URL" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Description">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="DomainClassNameSpace" type="xs:string" minOccurs="0" />
+                <xs:element name="DomainTypeName" type="xs:string" minOccurs="0" />
+                <xs:element name="DomainTypeURL" type="xs:string" minOccurs="0" />
+                <xs:element name="DomainTypeDescription" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <VarInfoVariables>
+    <Name>newLeafHasAppeared</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>1</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>NA</Units>
+    <Type>int</Type>
+    <Description>0: if no leaf has appeared, 1 if a leaf has just appeared</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>leafNumber</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>20</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>leaf</Units>
+    <Type>double</Type>
+    <Description>Number of emerged leaves on the main-stem</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>finalLeafNumber</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>20</MaxValue>
+    <DefaultValue>10</DefaultValue>
+    <Units>leaf</Units>
+    <Type>double</Type>
+    <Description> Leaf numer at maturity</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>roundedFinalLeafNumber</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>20</MaxValue>
+    <DefaultValue>10</DefaultValue>
+    <Units>leaf</Units>
+    <Type>int</Type>
+    <Description>rounded leaf number at maturity</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>phytonum</Name>
+    <MinValue>1</MinValue>
+    <MaxValue>21</MaxValue>
+    <DefaultValue>1</DefaultValue>
+    <Units>-</Units>
+    <Type>int</Type>
+    <Description>Number of leaf layer created</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>index</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>20</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>-</Units>
+    <Type>int</Type>
+    <Description>index of the  last  leaf layer created</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>MaximumPotentialLaminaeAI</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>100</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>m²/m²</Units>
+    <Type>List&lt;double&gt;</Type>
+    <Description>Maximum allowed Lamina area index without stress effects</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>MaximumPotentialSheathAI</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>100</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>m²/m²</Units>
+    <Type>List&lt;double&gt;</Type>
+    <Description>Maximum Sheat area index allowed without stress effect</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>FPAW</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>1</MaxValue>
+    <DefaultValue>0.5</DefaultValue>
+    <Units>dimensionless</Units>
+    <Type>double</Type>
+    <Description>Fraction of plant available water</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>isPotentialLAI</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>1</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>-</Units>
+    <Type>int</Type>
+    <Description>0: no drought stress is applied, 1: drought stress is applied</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>VPDairCanopy</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>100</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>hPa</Units>
+    <Type>double</Type>
+    <Description>Vapour Pressur deficit Air-Canopy</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>DSF</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>10</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>-</Units>
+    <Type>double</Type>
+    <Description>drought senescence factor</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>DEF</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>10</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>-</Units>
+    <Type>double</Type>
+    <Description>drought expansion factor</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>cumulTTShoot</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>1000</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>°C/d</Units>
+    <Type>double</Type>
+    <Description>Cumulative Shoot thermal time</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>deltaTTShoot</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>50</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>°C/d</Units>
+    <Type>double</Type>
+    <Description>Increas of shoot thermal time for the day</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>deltaTTSenescence</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>50</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>°C/d</Units>
+    <Type>double</Type>
+    <Description>Increase of senescence thermal time for the day</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>incDeltaAreaLimitSF</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>1</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>m²/m²</Units>
+    <Type>double</Type>
+    <Description>Total daily increase of GAI under drought stress</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>WaterLimitedPotDeltaAIList</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>0</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>m²/m²</Units>
+    <Type>List&lt;double&gt;</Type>
+    <Description>list on each phytomer for the potential daily increase of leaf layer</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>potentialIncDeltaArea</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>10</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>m²/m²</Units>
+    <Type>double</Type>
+    <Description>Total daily increase in GAI without stress</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>tilleringProfile</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>0</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>shoot/m²</Units>
+    <Type>List&lt;double&gt;</Type>
+    <Description>store the amount of new tiller created at each time a new tiller appears</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>leafTillerNumberArray</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>0</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>shoot</Units>
+    <Type>List&lt;double&gt;</Type>
+    <Description>store the number of tiller for each leaf layer</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>previousIndex</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>20</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>dimensioonless</Units>
+    <Type>int</Type>
+    <Description>index of the leaf layer during the last call of the component</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>TTgroSheathList</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>3000</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>°Cd</Units>
+    <Type>List&lt;double&gt;</Type>
+    <Description>List of Thermal Time at end of the sheath growth</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>TT</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>3000</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>°Cd</Units>
+    <Type>List&lt;double&gt;</Type>
+    <Description>List of Thermal times since emergence of this leaf Layer</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <Description>
+    <DomainClassNameSpace>SiriusQualityWheatLAI</DomainClassNameSpace>
+    <DomainTypeName>WheatLAIState</DomainTypeName>
+    <DomainTypeURL>http://</DomainTypeURL>
+    <DomainTypeDescription>Domain class description</DomainTypeDescription>
+  </Description>
+</WheatLAIState>
