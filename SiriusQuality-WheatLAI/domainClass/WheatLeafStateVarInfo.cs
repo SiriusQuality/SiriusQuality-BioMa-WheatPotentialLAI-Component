@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 /// 
-/// This class was created from file C:\Users\mancealo\Documents\Sirius Quality\branches\DebugMais\Code\SiriusQuality-WheatLAI\XML\SiriusQualityWheatLAI_WheatLeafState.xml
+/// This class was created from file C:\Users\mancealo\Documents\GitSiriusCode\SiriusCode\Development2\Code\SiriusQuality-WheatLAI\XML\SiriusQualityWheatLAI_WheatLeafState.xml
 /// The tool used was: DCC - Domain Class Coder, http://components.biomamodelling.org/, DCC
 /// 
 /// Loic Manceau
@@ -17,7 +17,7 @@
 /// INRA
 /// 
 /// 
-/// 9/28/2017 3:40:31 PM
+/// 10/4/2018 11:57:05 AM
 /// 
 namespace SiriusQualityWheatLAI
 {
@@ -57,6 +57,8 @@ namespace SiriusQualityWheatLAI
         static VarInfo _Phyllochron = new VarInfo();
         
         static VarInfo _isSmallPhytomer = new VarInfo();
+        
+        static VarInfo _deltaAI = new VarInfo();
         #endregion
         
         /// <summary>Constructor</summary>
@@ -220,6 +222,15 @@ namespace SiriusQualityWheatLAI
                 return  _isSmallPhytomer;
             }
         }
+        
+        /// <summary>Increase of GAI of the day</summary>
+        public static  VarInfo deltaAI
+        {
+            get
+            {
+                return  _deltaAI;
+            }
+        }
         #endregion
         
         #region VarInfo values
@@ -352,6 +363,15 @@ namespace SiriusQualityWheatLAI
             _isSmallPhytomer.Units = "dimensionless";
             _isSmallPhytomer.URL = "http://";
             _isSmallPhytomer.ValueType = VarInfoValueTypes.GetInstanceForName("ListInteger");
+            //   
+            _deltaAI.Name = "deltaAI";
+            _deltaAI.Description = "Increase of GAI of the day";
+            _deltaAI.MaxValue = 1000D;
+            _deltaAI.MinValue = 0D;
+            _deltaAI.DefaultValue = 0D;
+            _deltaAI.Units = "m²/m²";
+            _deltaAI.URL = "http://";
+            _deltaAI.ValueType = VarInfoValueTypes.GetInstanceForName("ListDouble");
         }
         #endregion
     }

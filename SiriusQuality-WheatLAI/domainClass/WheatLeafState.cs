@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 /// 
-/// This class was created from file C:\Users\mancealo\Documents\Sirius Quality\branches\DebugMais\Code\SiriusQuality-WheatLAI\XML\SiriusQualityWheatLAI_WheatLeafState.xml
+/// This class was created from file C:\Users\mancealo\Documents\GitSiriusCode\SiriusCode\Development2\Code\SiriusQuality-WheatLAI\XML\SiriusQualityWheatLAI_WheatLeafState.xml
 /// The tool used was: DCC - Domain Class Coder, http://components.biomamodelling.org/, DCC
 /// 
 /// Loic Manceau
@@ -17,7 +17,7 @@
 /// INRA
 /// 
 /// 
-/// 9/28/2017 3:40:31 PM
+/// 10/4/2018 11:57:05 AM
 /// 
 namespace SiriusQualityWheatLAI
 {
@@ -61,6 +61,8 @@ namespace SiriusQualityWheatLAI
         private System.Collections.Generic.List<double> _Phyllochron = new List<double>();
         
         private System.Collections.Generic.List<int> _isSmallPhytomer = new List<int>();
+        
+        private System.Collections.Generic.List<double> _deltaAI = new List<double>();
         #endregion
         
         #region Private field for properties
@@ -105,7 +107,10 @@ namespace SiriusQualityWheatLAI
 
             System.Collections.Generic.List<int> _isSmallPhytomer = new List<int>(toCopy._isSmallPhytomer);
 
+            System.Collections.Generic.List<double> _deltaAI = new List<double>(toCopy._deltaAI);
+
         }
+
         #endregion
         
         #region Public properties
@@ -290,6 +295,19 @@ namespace SiriusQualityWheatLAI
                 this._isSmallPhytomer = value;
             }
         }
+        
+        /// <summary>Increase of GAI of the day</summary>
+        public System.Collections.Generic.List<double> deltaAI
+        {
+            get
+            {
+                return this._deltaAI;
+            }
+            set
+            {
+                this._deltaAI = value;
+            }
+        }
         #endregion
         
         #region IDomainClass members
@@ -338,6 +356,7 @@ namespace SiriusQualityWheatLAI
             _laminaSpecificN = new List<double>();
             _Phyllochron = new List<double>();
             _isSmallPhytomer = new List<int>();
+            _deltaAI = new List<double>();
             // Returns true if everything is ok
             return true;
         }

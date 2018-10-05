@@ -86,6 +86,9 @@
     <Compile Include="Strategies\SenescenceThermalTime.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Strategies\UpdateLeafArea.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Strategies\WaterLimitedLeafExpansion.cs">
       <SubType>Code</SubType>
     </Compile>

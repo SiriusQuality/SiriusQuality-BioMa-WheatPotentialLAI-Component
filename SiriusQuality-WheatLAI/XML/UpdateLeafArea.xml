@@ -1,0 +1,130 @@
+<?xml version="1.0" standalone="yes"?>
+<StrategyDefinition>
+  <Global>
+    <SimpleStrategy>checked</SimpleStrategy>
+    <CompositeStrategy />
+    <DataInterfacesDLL>C:\Users\mancealo\Documents\GitSiriusCode\SiriusCode0\SiriusCode\Code\SiriusQuality-WheatLAI\obj\Debug\SiriusQuality-WheatLAI.dll</DataInterfacesDLL>
+    <StrategiesDLL />
+    <IStrategyComponentName>IStrategySiriusQualityWheatLAI</IStrategyComponentName>
+  </Global>
+  <General>
+    <Domain>Crop</Domain>
+    <ModelType />
+    <NameSpace>SiriusQualityWheatLAI.Strategies</NameSpace>
+    <StrategyName>UpdateLeafArea</StrategyName>
+    <StrategyDescription>Increase or Decrease (senescing leaves) the lamina and sheath Area Index</StrategyDescription>
+    <IsContext>false</IsContext>
+    <TimeSteps />
+    <AuthorFirstRelease>Loic Manceau</AuthorFirstRelease>
+    <Institution>INRA</Institution>
+    <Email>loic.manceau@inra.fr</Email>
+    <DateFirstRelease>10/4/2018</DateFirstRelease>
+    <AuthorRevision />
+    <EmailAuthorRevision />
+    <DateRevision />
+  </General>
+  <Inputs>
+    <Variable>cumulTTShoot</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>potentialIncDeltaArea</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>incDeltaAreaLimitSF</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>WaterLimitedPotDeltaAIList</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>availableN</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>LaminaAI</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>MaxAI</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>State</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>Phyllochron</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>TTem</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Inputs>
+    <Variable>SheathAI</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Inputs>
+  <Outputs>
+    <Variable>MaxAI</Variable>
+    <DomainClass>wheatleafstate1 - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Outputs>
+  <Outputs>
+    <Variable>incDeltaArea</Variable>
+    <DomainClass>wheatlaistate - SiriusQualityWheatLAI.WheatLAIState</DomainClass>
+  </Outputs>
+  <Outputs>
+    <Variable>deltaAI</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Outputs>
+  <Outputs>
+    <Variable>GAI</Variable>
+    <DomainClass>wheatleafstate - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Outputs>
+  <Outputs>
+    <Variable>LaminaAI</Variable>
+    <DomainClass>wheatleafstate1 - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Outputs>
+  <Outputs>
+    <Variable>SheathAI</Variable>
+    <DomainClass>wheatleafstate1 - SiriusQualityWheatLAI.WheatLeafState</DomainClass>
+  </Outputs>
+  <Parameters>
+    <VarName>SLNcri</VarName>
+    <Description>Critical area-based nitrogen content for leaf expansion</Description>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>1.98</DefaultValue>
+    <Units>g(N)/m²(leaf)</Units>
+    <ValueType>Double</ValueType>
+  </Parameters>
+  <Parameters>
+    <VarName>PexpL</VarName>
+    <Description>Phyllochronic duration of leaf lamina expansion</Description>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>1.1</DefaultValue>
+    <Units>phyllochron</Units>
+    <ValueType>Double</ValueType>
+  </Parameters>
+  <LoadedAssemblies>
+    <Name>SiriusQuality-WheatLAI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>CRA.ModelLayer, Version=1.0.5212.29139, Culture=neutral, PublicKeyToken=null</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>CRA.AgroManagement2014, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Name>
+  </LoadedAssemblies>
+  <LoadedAssemblies>
+    <Name>System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Name>
+  </LoadedAssemblies>
+</StrategyDefinition>
