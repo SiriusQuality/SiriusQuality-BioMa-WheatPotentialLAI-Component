@@ -3,8 +3,8 @@
   <Global>
     <SimpleStrategy />
     <CompositeStrategy>checked</CompositeStrategy>
-    <DataInterfacesDLL>C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\bin\Debug\SiriusQuality-WheatLAI.dll</DataInterfacesDLL>
-    <StrategiesDLL>C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\bin\Debug\SiriusQuality-WheatLAI.dll</StrategiesDLL>
+    <DataInterfacesDLL>C:\Users\mancealo\Documents\GitSiriusCode\SiriusCode0\SiriusCode\Code\SiriusQuality-WheatLAI\obj\Debug\SiriusQuality-WheatLAI.dll</DataInterfacesDLL>
+    <StrategiesDLL>C:\Users\mancealo\Documents\GitSiriusCode\SiriusCode0\SiriusCode\Code\SiriusQuality-WheatLAI\obj\Debug\SiriusQuality-WheatLAI.dll</StrategiesDLL>
     <IStrategyComponentName>IStrategySiriusQualityWheatLAI</IStrategyComponentName>
   </Global>
   <General>
@@ -38,6 +38,9 @@
   </AssociatedStrategies>
   <AssociatedStrategies>
     <StrategyFullName>SiriusQualityWheatLAI.Strategies.SenescenceThermalTime</StrategyFullName>
+  </AssociatedStrategies>
+  <AssociatedStrategies>
+    <StrategyFullName>SiriusQualityWheatLAI.Strategies.UpdateLeafArea</StrategyFullName>
   </AssociatedStrategies>
   <AssociatedStrategies>
     <StrategyFullName>SiriusQualityWheatLAI.Strategies.WaterLimitedLeafExpansion</StrategyFullName>

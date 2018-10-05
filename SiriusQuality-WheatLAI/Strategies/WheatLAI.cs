@@ -83,8 +83,12 @@ namespace SiriusQualityWheatLAI.Strategies
 				 _parameters0_0.Add(v17);
 				VarInfo v18 = new CompositeStrategyVarInfo(_senescencethermaltime,"PsenSL");
 				 _parameters0_0.Add(v18);
-				VarInfo v19 = new CompositeStrategyVarInfo(_waterlimitedleafexpansion,"SLNmin");
+				VarInfo v19 = new CompositeStrategyVarInfo(_updateleafarea,"SLNcri");
 				 _parameters0_0.Add(v19);
+				VarInfo v20 = new CompositeStrategyVarInfo(_updateleafarea,"PexpL");
+				 _parameters0_0.Add(v20);
+				VarInfo v21 = new CompositeStrategyVarInfo(_waterlimitedleafexpansion,"SLNmin");
+				 _parameters0_0.Add(v21);
 				mo0_0.Parameters=_parameters0_0;
 				//Inputs
 				List<PropertyDescription> _inputs0_0 = new List<PropertyDescription>();
@@ -106,6 +110,7 @@ namespace SiriusQualityWheatLAI.Strategies
 				lAssStrat0_0.Add(typeof(SiriusQualityWheatLAI.Strategies.MaturityThermalTime).FullName);
 				lAssStrat0_0.Add(typeof(SiriusQualityWheatLAI.Strategies.MaximumPotentialFinalLAI).FullName);
 				lAssStrat0_0.Add(typeof(SiriusQualityWheatLAI.Strategies.SenescenceThermalTime).FullName);
+				lAssStrat0_0.Add(typeof(SiriusQualityWheatLAI.Strategies.UpdateLeafArea).FullName);
 				lAssStrat0_0.Add(typeof(SiriusQualityWheatLAI.Strategies.WaterLimitedLeafExpansion).FullName);
 				mo0_0.AssociatedStrategies = lAssStrat0_0;
 				//Adding the modeling options to the modeling options manager
@@ -248,6 +253,7 @@ namespace SiriusQualityWheatLAI.Strategies
 				}
 				set {
 						_laminaexpansionthermaltime.PexpL=value;
+						_updateleafarea.PexpL=value;
 				}
 			}
 			public Double LowerFPAWexp
@@ -385,6 +391,15 @@ namespace SiriusQualityWheatLAI.Strategies
 						_senescencethermaltime.PsenSL=value;
 				}
 			}
+			public Double SLNcri
+			{ 
+				get {
+						return _updateleafarea.SLNcri ;
+				}
+				set {
+						_updateleafarea.SLNcri=value;
+				}
+			}
 			public Double SLNmin
 			{ 
 				get {
@@ -413,6 +428,7 @@ namespace SiriusQualityWheatLAI.Strategies
 					_maturitythermaltime.SetParametersDefaultValue();
 					_maximumpotentialfinallai.SetParametersDefaultValue();
 					_senescencethermaltime.SetParametersDefaultValue();
+					_updateleafarea.SetParametersDefaultValue();
 					_waterlimitedleafexpansion.SetParametersDefaultValue(); 
 
 					//GENERATED CODE END - PLACE YOUR CUSTOM CODE BELOW - Section5
@@ -560,6 +576,13 @@ namespace SiriusQualityWheatLAI.Strategies
 					get { return SiriusQualityWheatLAI.Strategies.SenescenceThermalTime.PsenSLVarInfo; }
 				}
 				/// <summary> 
+				///SLNcri VarInfo definition
+				/// </summary>
+				public static VarInfo SLNcriVarInfo
+				{
+					get { return SiriusQualityWheatLAI.Strategies.UpdateLeafArea.SLNcriVarInfo; }
+				}
+				/// <summary> 
 				///SLNmin VarInfo definition
 				/// </summary>
 				public static VarInfo SLNminVarInfo
@@ -595,6 +618,7 @@ namespace SiriusQualityWheatLAI.Strategies
 					 ret += _maturitythermaltime.TestPostConditions(wheatlaistate,wheatleafstate,wheatleafstate1, "strategy SiriusQualityWheatLAI.Strategies.MaturityThermalTime");
 					 ret += _maximumpotentialfinallai.TestPostConditions(wheatlaistate,wheatleafstate,wheatleafstate1, "strategy SiriusQualityWheatLAI.Strategies.MaximumPotentialFinalLAI");
 					 ret += _senescencethermaltime.TestPostConditions(wheatlaistate,wheatleafstate,wheatleafstate1, "strategy SiriusQualityWheatLAI.Strategies.SenescenceThermalTime");
+					 ret += _updateleafarea.TestPostConditions(wheatlaistate,wheatleafstate,wheatleafstate1, "strategy SiriusQualityWheatLAI.Strategies.UpdateLeafArea");
 					 ret += _waterlimitedleafexpansion.TestPostConditions(wheatlaistate,wheatleafstate,wheatleafstate1, "strategy SiriusQualityWheatLAI.Strategies.WaterLimitedLeafExpansion");
 					if (ret != "") { pre.TestsOut(ret, true, "   postconditions tests of associated classes"); }
 
@@ -649,6 +673,7 @@ namespace SiriusQualityWheatLAI.Strategies
 					 ret += _maturitythermaltime.TestPreConditions(wheatlaistate,wheatleafstate,wheatleafstate1, "strategy SiriusQualityWheatLAI.Strategies.MaturityThermalTime");
 					 ret += _maximumpotentialfinallai.TestPreConditions(wheatlaistate,wheatleafstate,wheatleafstate1, "strategy SiriusQualityWheatLAI.Strategies.MaximumPotentialFinalLAI");
 					 ret += _senescencethermaltime.TestPreConditions(wheatlaistate,wheatleafstate,wheatleafstate1, "strategy SiriusQualityWheatLAI.Strategies.SenescenceThermalTime");
+					 ret += _updateleafarea.TestPreConditions(wheatlaistate,wheatleafstate,wheatleafstate1, "strategy SiriusQualityWheatLAI.Strategies.UpdateLeafArea");
 					 ret += _waterlimitedleafexpansion.TestPreConditions(wheatlaistate,wheatleafstate,wheatleafstate1, "strategy SiriusQualityWheatLAI.Strategies.WaterLimitedLeafExpansion");
 					if (ret != "") { pre.TestsOut(ret, true, "   preconditions tests of associated classes"); }
 
@@ -731,6 +756,7 @@ namespace SiriusQualityWheatLAI.Strategies
 			SiriusQualityWheatLAI.Strategies.MaturityThermalTime _maturitythermaltime = new SiriusQualityWheatLAI.Strategies.MaturityThermalTime();
 			SiriusQualityWheatLAI.Strategies.MaximumPotentialFinalLAI _maximumpotentialfinallai = new SiriusQualityWheatLAI.Strategies.MaximumPotentialFinalLAI();
 			SiriusQualityWheatLAI.Strategies.SenescenceThermalTime _senescencethermaltime = new SiriusQualityWheatLAI.Strategies.SenescenceThermalTime();
+			SiriusQualityWheatLAI.Strategies.UpdateLeafArea _updateleafarea = new SiriusQualityWheatLAI.Strategies.UpdateLeafArea();
 			SiriusQualityWheatLAI.Strategies.WaterLimitedLeafExpansion _waterlimitedleafexpansion = new SiriusQualityWheatLAI.Strategies.WaterLimitedLeafExpansion();
 
 			//Call of the associated strategies
@@ -746,6 +772,8 @@ namespace SiriusQualityWheatLAI.Strategies
                 _leafexpansiondroughtfactor.Estimate(wheatlaistate, wheatleafstate, wheatleafstate1, actevents);
                 _maximumpotentialfinallai.Estimate(wheatlaistate, wheatleafstate, wheatleafstate1, actevents);
                 _waterlimitedleafexpansion.Estimate(wheatlaistate, wheatleafstate, wheatleafstate1, actevents);
+
+                resetDeltaAI(wheatleafstate);
             }
 
             #endregion
@@ -757,6 +785,18 @@ namespace SiriusQualityWheatLAI.Strategies
 				//GENERATED CODE END - PLACE YOUR CUSTOM CODE BELOW - Section2
 				//Code written below will not be overwritten by a future code generation
 
+            public void UpdateLeafArea(SiriusQualityWheatLAI.WheatLAIState wheatlaistate, SiriusQualityWheatLAI.WheatLeafState wheatleafstate, SiriusQualityWheatLAI.WheatLeafState wheatleafstate1, CRA.AgroManagement.ActEvents actevents)
+            {
+                _updateleafarea.Estimate(wheatlaistate, wheatleafstate, wheatleafstate1, actevents);
+            }
+
+            public void resetDeltaAI(SiriusQualityWheatLAI.WheatLeafState wheatleafstate)
+            {
+                for (int ilayer = 0; ilayer < wheatleafstate.deltaAI.Count; ilayer++)
+                {
+                    wheatleafstate.deltaAI[ilayer] = 0;
+                }
+            }
                 /// <summary>
                 /// copy constructor. We only need to copy the parameters (the strategies being stateless)
                 /// </summary> 
@@ -782,6 +822,8 @@ namespace SiriusQualityWheatLAI.Strategies
                     PlagSL = toCopy.PlagSL;
                     PsenLL = toCopy.PsenLL;
                     PsenSL = toCopy.PsenSL;
+
+                    SLNcri = toCopy.SLNcri;
 
 
                 }

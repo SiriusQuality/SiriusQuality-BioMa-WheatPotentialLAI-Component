@@ -20,7 +20,7 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
                 Console.WriteLine("*Choose the day after sowing when the simulation have to stop (between 0 and 68)");
                 string stopstr = Console.ReadLine();
                 stop = Int32.Parse(stopstr);
-                stop = Math.Min(68,stop);
+                stop = Math.Min(68, stop);
 
                 #endregion
 
@@ -292,7 +292,7 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
 
                 #endregion
 
-                #region Intantiation of other ouptuts
+                #region Instantiation of other ouptuts
 
                 //Cumulative shoot thermal time
                 double cumulTTShoot = 0.0;
@@ -305,7 +305,7 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
                 bool HasNewLeafAppeared = false;
 
                 int newLeafindex = 0;
-                int newLeafLastPhytoNum =0;
+                int newLeafLastPhytoNum = 0;
 
                 #endregion
 
@@ -315,31 +315,22 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
 
                 //Biomass density of the leaf layer (per unit of area)
                 //Value from Yecora Rojo wheat variety
-                double specificWeight = 35.0;//g(DM)/m²(leaf)
-
-                //Phyllochronic duration of leaf lamina expansion
-                //Value from Yecora Rojo wheat variety
-                double PexpL = 1.1;
+                double specificWeight = 35.0;//g(DM)/m²(leaf)               
 
                 //Daily available Nitrogen for stress factor calculation (gN/m²)
                 //It is a large amount to mimic Nitrogen unlimited cultivation
                 double availN = 2.5;
 
-                //Critical area-based nitrogen content for leaf expansion (g(N)/m²(leaf)
-                //Value from Yecora Rojo wheat variety
-                double SLNcri = 1.3;
 
                 #endregion
-
 
                 #region intermediate
 
                 List<LeafLayer> AllLeaves = new List<LeafLayer>();
                 double previousLeafNumber = 0.0;
-                
+
 
                 #endregion
-
 
                 #region Ouputs
 
@@ -376,7 +367,6 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
                     foreach (LeafLayer leaflayer in AllLeaves) leaflayer.MaxAI = Math.Max(leaflayer.MaxAI, leaflayer.GAI);
 
                     #endregion
-
 
                     #region Create Leaf Layer
 
@@ -450,99 +440,50 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
 
                     #region Grow/Kill leaves
 
+                    #region Calculate increase/deacrease in area index
+
+                    wheatlaiwrapper_.UpdateAreas(cumulTTShoot, availN, AllLeaves);
+
+                    #endregion
+
+                    #region Shoot Area Index and Dry Matter dynamics
+
                     int ileaf = 0;
 
                     foreach (LeafLayer leaflayer in AllLeaves)
                     {
 
-                        #region Grow
+                        #region Shoot Area Index increase/Decrease
+
+                        ShootAI += leaflayer.DeltaAI;
+
+                        #endregion
+
+                        #region bioMass Increase
 
                         if (leaflayer.State == LeafState.Growing)
                         {
-                            #region Stress Growth factor
-
-                            double actualDeltaAI = 0.0;
-
-                            if (wheatlaiwrapper_.getIncDeltaAreaLimitSF() != 0)
-                            {
-                                actualDeltaAI = wheatlaiwrapper_.getIncDeltaAreaLimitSF() * Math.Min(1.0, availN / (wheatlaiwrapper_.getIncDeltaAreaLimitSF() * SLNcri));
-                            }
-
-                            double stressGrowth = 0.0;
-                            if (wheatlaiwrapper_.getPotentialIncDeltaArea() != 0.0) stressGrowth = actualDeltaAI / wheatlaiwrapper_.getPotentialIncDeltaArea();
-
-
-                            #endregion
-
-                            #region Area Index increase
-
-                            leaflayer.DeltaAI = wheatlaiwrapper_.getWaterLimitedPotDeltaAI(ileaf) * stressGrowth;
-
-                            if ((cumulTTShoot - leaflayer.TTem) < leaflayer.LayerPhyllochron * PexpL)
-                            {
-                                leaflayer.laminaAI += leaflayer.DeltaAI;
-                            }
-                            else
-                            {
-                                leaflayer.sheathAI += leaflayer.DeltaAI;
-                            }
-
-
-                            ShootAI += leaflayer.DeltaAI;
-
-                            #endregion
-
-                            #region bioMass Increase
-
                             leaflayer.DeltaDM = leaflayer.DeltaAI * specificWeight;
                             ShootDM += leaflayer.DeltaDM;
-
-                            #endregion
-
                         }
 
                         #endregion
 
-                        #region Kill
+                        #region Biomass decrease
 
                         if (leaflayer.State == LeafState.Senescing)
                         {
-                            if (leaflayer.GAI > 0.0)
-                            {
-                                #region Area Index decrease
-
-                                //When leaves are senescing wheatlaiwrapper_.getWaterLimitedPotDeltaAI(ileaf) is negative
-                                //We add a negative number to AI and DM, the leaves are actually dying
-
-                                double deltalaminaAI = wheatlaiwrapper_.getWaterLimitedPotDeltaAI(ileaf) * (leaflayer.laminaAI / leaflayer.GAI);
-                                double deltasheathAI = wheatlaiwrapper_.getWaterLimitedPotDeltaAI(ileaf) * (leaflayer.sheathAI / leaflayer.GAI);
-
-                                leaflayer.sheathAI += deltalaminaAI;
-                                leaflayer.laminaAI += deltasheathAI;
-
-                                leaflayer.DeltaAI = deltalaminaAI + deltasheathAI;
-                                ShootAI += leaflayer.DeltaAI;
-
-                                #endregion
-
-                                #region Biomass decrease
-
-                                leaflayer.DeltaDM = leaflayer.DeltaAI * specificWeight;
-                                ShootDM += leaflayer.DeltaDM;
-
-                                #endregion
-
-                            }
+                            leaflayer.DeltaDM = leaflayer.DeltaAI * specificWeight;
+                            ShootDM += leaflayer.DeltaDM;
                         }
 
                         #endregion
 
                         ileaf++;
-
                     }
-
                     #endregion
 
+                    #endregion
 
                     #region Console Write
 
@@ -592,16 +533,13 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
                                            + S + space.Substring(0, len - S.Length));
                     }
                     #endregion
-
-
                 }
-
 
                 #region Console Write
 
                 Console.Write("type \"C\" to continue, something else to exit");
                 string brkcond = Console.ReadLine();
-                if (brkcond != "C") break; 
+                if (brkcond != "C") break;
 
                 #endregion
             }

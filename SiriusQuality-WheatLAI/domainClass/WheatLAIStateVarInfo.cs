@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 /// 
-/// This class was created from file C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\XML\SiriusQualityWheatLAI_WheatLAIState.xml
+/// This class was created from file C:\Users\mancealo\Documents\GitSiriusCode\SiriusCode\Development2\Code\SiriusQuality-WheatLAI\XML\SiriusQualityWheatLAI_WheatLAIState.xml
 /// The tool used was: DCC - Domain Class Coder, http://components.biomamodelling.org/, DCC
 /// 
 /// Loic Manceau
@@ -17,7 +17,7 @@
 /// INRA
 /// 
 /// 
-/// 7/26/2018 2:16:11 PM
+/// 10/4/2018 11:31:58 AM
 /// 
 namespace SiriusQualityWheatLAI
 {
@@ -77,6 +77,10 @@ namespace SiriusQualityWheatLAI
         static VarInfo _TTgroSheathList = new VarInfo();
         
         static VarInfo _TT = new VarInfo();
+        
+        static VarInfo _incDeltaArea = new VarInfo();
+        
+        static VarInfo _availableN = new VarInfo();
         #endregion
         
         /// <summary>Constructor</summary>
@@ -330,6 +334,24 @@ namespace SiriusQualityWheatLAI
                 return  _TT;
             }
         }
+        
+        /// <summary>Actual increase in Area of the day</summary>
+        public static  VarInfo incDeltaArea
+        {
+            get
+            {
+                return  _incDeltaArea;
+            }
+        }
+        
+        /// <summary>Available Nitrogen of the day</summary>
+        public static  VarInfo availableN
+        {
+            get
+            {
+                return  _availableN;
+            }
+        }
         #endregion
         
         #region VarInfo values
@@ -552,6 +574,24 @@ namespace SiriusQualityWheatLAI
             _TT.Units = "°Cd";
             _TT.URL = "http://";
             _TT.ValueType = VarInfoValueTypes.GetInstanceForName("ListDouble");
+            //   
+            _incDeltaArea.Name = "incDeltaArea";
+            _incDeltaArea.Description = "Actual increase in Area of the day";
+            _incDeltaArea.MaxValue = 1000D;
+            _incDeltaArea.MinValue = 0D;
+            _incDeltaArea.DefaultValue = 0D;
+            _incDeltaArea.Units = "m²/m²";
+            _incDeltaArea.URL = "http://";
+            _incDeltaArea.ValueType = VarInfoValueTypes.GetInstanceForName("Double");
+            //   
+            _availableN.Name = "availableN";
+            _availableN.Description = "Available Nitrogen of the day";
+            _availableN.MaxValue = 1000D;
+            _availableN.MinValue = 0D;
+            _availableN.DefaultValue = 10D;
+            _availableN.Units = "g/m²";
+            _availableN.URL = "http://";
+            _availableN.ValueType = VarInfoValueTypes.GetInstanceForName("Double");
         }
         #endregion
     }
