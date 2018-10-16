@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiriusQuality-WheatLAI", "SiriusQuality-WheatLAI\SiriusQuality-WheatLAI.csproj", "{59336D65-9DE8-4156-B7E0-E1713A5F3F39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiriusQuality-SiriusQuality-WheatLAIConsole", "SiriusQuality-SiriusQuality-WheatLAIConsole\SiriusQuality-SiriusQuality-WheatLAIConsole.csproj", "{F083391A-C1E7-4CC0-B68C-7F62D7B58326}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiriusQuality-WheatLAIConsole", "SiriusQuality-SiriusQuality-WheatLAIConsole\SiriusQuality-WheatLAIConsole.csproj", "{F083391A-C1E7-4CC0-B68C-7F62D7B58326}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestWheatLAI", "UnitTestWheatLAI\UnitTestWheatLAI.csproj", "{DFB3F76E-3364-4D6E-8BD7-9C40E26D89F2}"
 EndProject

@@ -3,7 +3,7 @@
   <Global>
     <SimpleStrategy />
     <CompositeStrategy />
-    <DataInterfacesDLL>C:\Users\mancealo\Documents\GitSiriusCode\SiriusCode\Development2\Code\SiriusQuality-WheatLAI\bin\Debug\SiriusQuality-WheatLAI.dll</DataInterfacesDLL>
+    <DataInterfacesDLL>C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\bin\Debug\SiriusQuality-WheatLAI.dll</DataInterfacesDLL>
     <StrategiesDLL />
     <IStrategyComponentName>IStrategySiriusQualityWheatLAI</IStrategyComponentName>
   </Global>
