@@ -43,6 +43,8 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
 
         }
 
+        public double incDeltaArea { get { return wheatLaistate_.incDeltaArea; } }
+
         private int previousIndex = -1;
 
 
@@ -70,6 +72,8 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
             double PlagSL=4.0;
             double PsenLL=5.0;
             double PsenSL=3.3;
+            double SLNcri = 1.3;
+
 
         #endregion
 
@@ -131,15 +135,36 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
                     wheatLAI_.Estimate(wheatLaistate_, wheatLeafstate_, wheatLeafstate1_, null);
 
                     //Fill the objects of the leafLayer Class with the content of leaf layers of the component
-                    FillOutputLayersWheat(All);
+                    FillOutputLayersWheat(All,true);
 
             }
 
         #endregion
 
+        #region Update Area Function
+
+            public void UpdateAreas(double cumulTTShoot, double availN, List<LeafLayer> All)
+            {
+                wheatLaistate_.cumulTTShoot = cumulTTShoot;
+                wheatLaistate_.availableN = availN;
+
+                wheatLaistate_.incDeltaAreaLimitSF = getIncDeltaAreaLimitSF();
+                wheatLaistate_.potentialIncDeltaArea = getPotentialIncDeltaArea();
+                for (int ilayer = 0; ilayer < All.Count; ilayer++) wheatLaistate_.WaterLimitedPotDeltaAIList[ilayer] = getWaterLimitedPotDeltaAI(ilayer);
+
+                FillIntputLayersWheat(All);
+
+                wheatLAI_.UpdateLeafArea(wheatLaistate_, wheatLeafstate_, wheatLeafstate1_, null);
+
+                FillOutputLayersWheat(All, false);
+
+            }
+
+            #endregion
+
         #region Utilities
 
-        #region LoadParameters
+            #region LoadParameters
 
             private void loadParametersWheat()
         {
@@ -161,10 +186,11 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
             wheatLAI_.PlagSL = PlagSL;
             wheatLAI_.PsenLL = PsenLL;
             wheatLAI_.PsenSL = PsenSL;
+            wheatLAI_.SLNcri = SLNcri;
         }
         #endregion
 
-        #region Output state convertors
+            #region Output state convertors
 
         private List<LeafState> GetStateListWheat()
         {
@@ -226,7 +252,7 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
 
         #endregion
 
-        #region Connection with Leaf layer object
+            #region Connection with Leaf layer object
 
         private void FillIntputLayersWheat(List<LeafLayer> All)
         {
@@ -266,37 +292,42 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
             }
         }
 
-        private void FillOutputLayersWheat(List<LeafLayer> All)
+        private void FillOutputLayersWheat(List<LeafLayer> All, bool isEstimate)
         {
             for (int ilayer = 0; ilayer < wheatLeafstate_.State.Count; ilayer++)
             {
-
-                switch (wheatLeafstate_.State[ilayer])
+                if (isEstimate)
                 {
-                    case 0:
-                        All[ilayer].setState(LeafState.Growing);
-                        break;
-                    case 1:
-                        All[ilayer].setState(LeafState.Mature);
-                        break;
-                    case 2:
-                        All[ilayer].setState(LeafState.Senescing);
-                        break;
-                    case 3:
-                        All[ilayer].setState(LeafState.Dead);
-                        break;
+                    switch (wheatLeafstate_.State[ilayer])
+                    {
+                        case 0:
+                            All[ilayer].setState(LeafState.Growing);
+                            break;
+                        case 1:
+                            All[ilayer].setState(LeafState.Mature);
+                            break;
+                        case 2:
+                            All[ilayer].setState(LeafState.Senescing);
+                            break;
+                        case 3:
+                            All[ilayer].setState(LeafState.Dead);
+                            break;
+                    }
+
+
+                    All[ilayer].TTsen = wheatLeafstate_.TTsen[ilayer];
+                    All[ilayer].TTmat = wheatLeafstate_.TTmat[ilayer];
+                    All[ilayer].TTgroLamina = wheatLeafstate_.TTGroLamina[ilayer];
+                    if (wheatLeafstate_.isSmallPhytomer[ilayer] == 1) All[ilayer].IsSmallPhytomer = true;
+                    else All[ilayer].IsSmallPhytomer = false; 
                 }
-
-
-                All[ilayer].TTsen = wheatLeafstate_.TTsen[ilayer];
-                All[ilayer].TTmat = wheatLeafstate_.TTmat[ilayer];
-                All[ilayer].TTgroLamina = wheatLeafstate_.TTGroLamina[ilayer];
-
-                if (wheatLeafstate_.isSmallPhytomer[ilayer] == 1) All[ilayer].IsSmallPhytomer = true;
-                else All[ilayer].IsSmallPhytomer = false;
-
-                All[ilayer].setPrematurelyDying(wheatLeafstate1_.isPrematurelyDying[ilayer]);
-
+                else
+                {
+                    All[ilayer].MaxAI = wheatLeafstate1_.MaxAI[ilayer];
+                    All[ilayer].DeltaAI = wheatLeafstate_.deltaAI[ilayer];
+                    All[ilayer].laminaAI=wheatLeafstate_.LaminaAI[ilayer];
+                    All[ilayer].sheathAI=wheatLeafstate_.SheathAI[ilayer];
+                }
 
             }
 
@@ -305,7 +336,7 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
 
         #endregion
 
-        #region create a conmponent leaf layer
+            #region create a conmponent leaf layer
 
         public void CreateLeafLayerLAIComponentWheat()
         {
@@ -324,10 +355,15 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
             wheatLeafstate_.laminaSpecificN.Add(0.0);
             wheatLeafstate_.LaminaAI.Add(0.0);
             wheatLeafstate_.SheathAI.Add(0.0);
+            wheatLeafstate_.deltaAI.Add(0.0);
 
 
             wheatLeafstate1_.State.Add(0);
             wheatLeafstate1_.isPrematurelyDying.Add(0);
+            wheatLeafstate1_.MaxAI.Add(0.0);
+            wheatLeafstate1_.GAI.Add(0.0);
+            wheatLeafstate1_.LaminaAI.Add(0.0);
+            wheatLeafstate1_.SheathAI.Add(0.0);
 
 
         }
@@ -336,7 +372,7 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
 
         #endregion
 
-        #region Intantiation
+        #region Instantiation
 
         //Composite strategy instantiation
         private SiriusQualityWheatLAI.Strategies.WheatLAI wheatLAI_;

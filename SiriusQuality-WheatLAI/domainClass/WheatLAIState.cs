@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 /// 
-/// This class was created from file C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\XML\SiriusQualityWheatLAI_WheatLAIState.xml
+/// This class was created from file C:\Users\mancealo\Documents\GitSiriusCode\SiriusCode\Development2\Code\SiriusQuality-WheatLAI\XML\SiriusQualityWheatLAI_WheatLAIState.xml
 /// The tool used was: DCC - Domain Class Coder, http://components.biomamodelling.org/, DCC
 /// 
 /// Loic Manceau
@@ -17,7 +17,7 @@
 /// INRA
 /// 
 /// 
-/// 7/26/2018 2:16:11 PM
+/// 10/4/2018 11:31:58 AM
 /// 
 namespace SiriusQualityWheatLAI
 {
@@ -81,6 +81,10 @@ namespace SiriusQualityWheatLAI
         private System.Collections.Generic.List<double> _TTgroSheathList = new List<double>();
         
         private System.Collections.Generic.List<double> _TT = new List<double>();
+        
+        private double _incDeltaArea;
+        
+        private double _availableN;
         #endregion
         
         #region Private field for properties
@@ -96,49 +100,57 @@ namespace SiriusQualityWheatLAI
 
         public WheatLAIState(WheatLAIState toCopy)
         {
-            _newLeafHasAppeared = toCopy.newLeafHasAppeared;
+                _newLeafHasAppeared = toCopy.newLeafHasAppeared;
 
-            _leafNumber = toCopy.leafNumber;
+                _leafNumber = toCopy.leafNumber;
 
-            _finalLeafNumber = toCopy.finalLeafNumber;
+                _finalLeafNumber = toCopy.finalLeafNumber;
 
-            _roundedFinalLeafNumber = toCopy.roundedFinalLeafNumber;
+                _roundedFinalLeafNumber = toCopy.roundedFinalLeafNumber;
 
-            _phytonum = toCopy.phytonum;
+                _phytonum = toCopy.phytonum;
 
-            _index = toCopy.index;
+                _index = toCopy.index;
 
-            _FPAW = toCopy.FPAW;
+                _FPAW = toCopy.FPAW;
 
-            _isPotentialLAI = toCopy.isPotentialLAI;
+                _isPotentialLAI = toCopy.isPotentialLAI;
 
-            _VPDairCanopy = toCopy.VPDairCanopy;
+                _VPDairCanopy = toCopy.VPDairCanopy;
 
-            _DSF = toCopy.DSF;
+                _DSF = toCopy.DSF;
 
-            _DEF = toCopy.DEF;
+                _DEF = toCopy.DEF;
 
-            _cumulTTShoot = toCopy.cumulTTShoot;
+                _cumulTTShoot = toCopy.cumulTTShoot;
 
-            _deltaTTShoot = toCopy.deltaTTShoot;
+                _deltaTTShoot = toCopy.deltaTTShoot;
 
-            _deltaTTSenescence = toCopy.deltaTTSenescence;
+                _deltaTTSenescence = toCopy.deltaTTSenescence;
 
-            _incDeltaAreaLimitSF = toCopy.incDeltaAreaLimitSF;
+                _incDeltaAreaLimitSF = toCopy.incDeltaAreaLimitSF;
 
-            _potentialIncDeltaArea = toCopy.potentialIncDeltaArea;
+                _potentialIncDeltaArea = toCopy.potentialIncDeltaArea;
 
-            System.Collections.Generic.List<double> _tilleringProfile = new List<double>(toCopy._tilleringProfile);
+                System.Collections.Generic.List<double> _tilleringProfile = new List<double>(toCopy._tilleringProfile);
 
-            System.Collections.Generic.List<double> _leafTillerNumberArray = new List<double>(toCopy._leafTillerNumberArray);
+                System.Collections.Generic.List<double> _leafTillerNumberArray = new List<double>(toCopy._leafTillerNumberArray);
 
-            System.Collections.Generic.List<double> _MaximumPotentialLaminaeAI = new List<double>(toCopy._MaximumPotentialLaminaeAI);
-            System.Collections.Generic.List<double> _MaximumPotentialSheathAI = new List<double>(toCopy._MaximumPotentialSheathAI);
-            System.Collections.Generic.List<double> _WaterLimitedPotDeltaAIList = new List<double>(toCopy._WaterLimitedPotDeltaAIList);
-            _previousIndex = toCopy._previousIndex;
-            System.Collections.Generic.List<double> _TTgroSheathList = new List<double>(toCopy._TTgroSheathList);
+                System.Collections.Generic.List<double> _MaximumPotentialLaminaeAI = new List<double>(toCopy._MaximumPotentialLaminaeAI);
+                
+                System.Collections.Generic.List<double> _MaximumPotentialSheathAI = new List<double>(toCopy._MaximumPotentialSheathAI);
+                
+                System.Collections.Generic.List<double> _WaterLimitedPotDeltaAIList = new List<double>(toCopy._WaterLimitedPotDeltaAIList);
+                
+                System.Collections.Generic.List<double> _TTgroSheathList = new List<double>(toCopy._TTgroSheathList);
 
-            System.Collections.Generic.List<double> _TT = new List<double>(toCopy._TT);
+                System.Collections.Generic.List<double> _TT = new List<double>(toCopy._TT);
+
+                _previousIndex = toCopy._previousIndex;
+                
+                _incDeltaArea = toCopy._incDeltaArea;
+                
+                _availableN = toCopy._availableN;
 
         }
 
@@ -456,6 +468,32 @@ namespace SiriusQualityWheatLAI
                 this._TT = value;
             }
         }
+        
+        /// <summary>Actual increase in Area of the day</summary>
+        public double incDeltaArea
+        {
+            get
+            {
+                return this._incDeltaArea;
+            }
+            set
+            {
+                this._incDeltaArea = value;
+            }
+        }
+        
+        /// <summary>Available Nitrogen of the day</summary>
+        public double availableN
+        {
+            get
+            {
+                return this._availableN;
+            }
+            set
+            {
+                this._availableN = value;
+            }
+        }
         #endregion
         
         #region IDomainClass members
@@ -514,6 +552,8 @@ namespace SiriusQualityWheatLAI
             _previousIndex = default(System.Int32);
             _TTgroSheathList = new List<double>();
             _TT = new List<double>();
+            _incDeltaArea = default(System.Double);
+            _availableN = default(System.Double);
             // Returns true if everything is ok
             return true;
         }
