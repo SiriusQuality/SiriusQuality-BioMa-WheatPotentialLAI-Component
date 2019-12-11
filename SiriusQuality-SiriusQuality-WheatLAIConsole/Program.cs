@@ -488,7 +488,7 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
                     #region Console Write
 
                     // Call an output of the component
-                    // do phenology_.My output
+                    // do wheatlaiwrapper_.My output
                     // e.g. wheatlaiwrapper_.getLeafStateList() List of the leaf layer states (Growing, Senecsing, dead...)
                     //...
 

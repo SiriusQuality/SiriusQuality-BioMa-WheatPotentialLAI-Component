@@ -74,6 +74,7 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
             double PsenSL=3.3;
             double SLNcri = 1.3;
 
+
         #endregion
 
         #region constructors 

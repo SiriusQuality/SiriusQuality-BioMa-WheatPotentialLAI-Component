@@ -45,11 +45,12 @@ C:\Users\mancealo\Documents\GitSiriusCode\SiriusCode\Development2\Code\SiriusQua
 C:\Users\mancealo\Documents\GitSiriusCode\SiriusCode\Development2\Code\SiriusQuality-WheatLAI\obj\Debug\SiriusQuality-WheatLAI.dll
 C:\Users\mancealo\Documents\GitSiriusCode\SiriusCode\Development2\Code\SiriusQuality-WheatLAI\obj\Debug\SiriusQuality-WheatLAI.pdb
 C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\bin\Debug\SiriusQuality-WheatLAI.dll
-C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\bin\Debug\CRA.AgroManagement2014.dll
-C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\bin\Debug\CRA.ModelLayer.dll
 C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\bin\Debug\SiriusQuality-WheatLAI.pdb
+C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\bin\Debug\CRA.AgroManagement2014.dll
 C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\bin\Debug\CRA.AgroManagement2014.Impacts.dll
 C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\bin\Debug\CRA.AgroManagement2014.Rules.dll
 C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\bin\Debug\CRA.Core.Preconditions.dll
+C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\bin\Debug\CRA.ModelLayer.dll
 C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\obj\Debug\SiriusQuality-WheatLAI.dll
 C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\obj\Debug\SiriusQuality-WheatLAI.pdb
+C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\obj\Debug\SiriusQuality-WheatLAI.csprojResolveAssemblyReference.cache
