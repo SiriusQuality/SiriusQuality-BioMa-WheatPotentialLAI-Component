@@ -272,6 +272,46 @@
     <Description>List of Thermal times since emergence of this leaf Layer</Description>
     <URL>http://</URL>
   </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>dayLength</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>24</MaxValue>
+    <DefaultValue>12</DefaultValue>
+    <Units>h</Units>
+    <Type>double</Type>
+    <Description>Lenght of the day</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>avHourVPDDay</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>100</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>hPa</Units>
+    <Type>double</Type>
+    <Description>Average VPD during the day</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>availableN</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>1000</MaxValue>
+    <DefaultValue>10</DefaultValue>
+    <Units>g/m²</Units>
+    <Type>double</Type>
+    <Description>Available Nitrogen of the day</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
+  <VarInfoVariables>
+    <Name>incDeltaArea</Name>
+    <MinValue>0</MinValue>
+    <MaxValue>1000</MaxValue>
+    <DefaultValue>0</DefaultValue>
+    <Units>m²/m²</Units>
+    <Type>double</Type>
+    <Description>Actual increase in Area of the day</Description>
+    <URL>http://</URL>
+  </VarInfoVariables>
   <Description>
     <DomainClassNameSpace>SiriusQualityWheatLAI</DomainClassNameSpace>
     <DomainTypeName>WheatLAIState</DomainTypeName>

@@ -677,48 +677,62 @@ namespace SiriusQualityWheatLAI.Strategies
 		
 
 			private void CalculateModel(SiriusQualityWheatLAI.WheatLAIState wheatlaistate,SiriusQualityWheatLAI.WheatLeafState wheatleafstate,SiriusQualityWheatLAI.WheatLeafState wheatleafstate1,CRA.AgroManagement.ActEvents actevents)
-			{				
-				
+			{
 
-				//GENERATED CODE END - PLACE YOUR CUSTOM CODE BELOW - Section1
-				//Code written below will not be overwritten by a future code generation
-                if (wheatlaistate.isPotentialLAI==1)
-                {
-                    wheatlaistate.DEF = 1;
-                    wheatlaistate.DSF = 1;
-                }
-                else
-                {
 
-                    wheatlaistate.DEF = CalculateDF(LowerFPAWexp, UpperFPAWexp, 0, 1, wheatlaistate.FPAW, wheatlaistate.VPDairCanopy);
-                    wheatlaistate.DSF = CalculateDF(LowerFPAWsen, UpperFPAWsen, MaxDSF, 1, wheatlaistate.FPAW, wheatlaistate.VPDairCanopy);
-                }
+            //GENERATED CODE END - PLACE YOUR CUSTOM CODE BELOW - Section1
+            //Code written below will not be overwritten by a future code generation
+            if (wheatlaistate.isPotentialLAI == 1)
+            {
+                wheatlaistate.DEF = 1;
+                wheatlaistate.DSF = 1;
+            }
+            else
+            {
+
+                wheatlaistate.DEF = CalculateDEF(LowerFPAWexp, UpperFPAWexp, 0, 1, wheatlaistate.FPAW, wheatlaistate.avHourVPDDay, wheatlaistate.dayLength);
+                wheatlaistate.DSF = CalculateDF(LowerFPAWsen, UpperFPAWsen, MaxDSF, 1, wheatlaistate.FPAW);
+            }
         
 
 				//End of custom code. Do not place your custom code below. It will be overwritten by a future code generation.
 				//PLACE YOUR CUSTOM CODE ABOVE - GENERATED CODE START - Section1 
 			}
 
-				
-
-	#endregion
 
 
-				//GENERATED CODE END - PLACE YOUR CUSTOM CODE BELOW - Section2
-				//Code written below will not be overwritten by a future code generation
-            private double CalculateDF(double lowerFPAW, double upperFPAW, double maxDF, double minDF, double FPAW, double VPDairCanopy)
-            {
-                // VPD choking function
-                double vpdSF = (VPDairCanopy - UpperVPD) / (LowerVPD - UpperVPD);
-                if (VPDairCanopy < LowerVPD) vpdSF = 1;
-                if (VPDairCanopy > UpperVPD) vpdSF = 0;
-                // soil moisture choking function
-                double pawSF = (FPAW - lowerFPAW) / (upperFPAW - lowerFPAW);
-                if (FPAW > upperFPAW) pawSF = 1;
-                if (FPAW < lowerFPAW) pawSF = 0;
-                return maxDF + (minDF - maxDF) * pawSF * vpdSF;
-            }
-				//End of custom code. Do not place your custom code below. It will be overwritten by a future code generation.
-				//PLACE YOUR CUSTOM CODE ABOVE - GENERATED CODE START - Section2 
-	}
+        #endregion
+
+
+        //GENERATED CODE END - PLACE YOUR CUSTOM CODE BELOW - Section2
+        //Code written below will not be overwritten by a future code generation
+        private double CalculateDF(double lowerFPAW, double upperFPAW, double maxDF, double minDF, double FPAW)
+        {
+            double pawSF = (FPAW - lowerFPAW) / (upperFPAW - lowerFPAW);
+            if (FPAW > upperFPAW) pawSF = 1;
+            if (FPAW < lowerFPAW) pawSF = 0;
+
+            return maxDF + (minDF - maxDF) * pawSF;
+        }
+
+        private double CalculateDEF(double lowerFPAW, double upperFPAW, double maxDF, double minDF, double FPAW, double avHourVPDDay, double dayLength)
+        {
+            double LowerVPD = 12.5; //hPa
+            double UpperVPD = 53.2; //hPa
+
+            double Rvpd = Math.Max(0.0, Math.Min(1.0, (avHourVPDDay - UpperVPD) / (LowerVPD - UpperVPD)));
+
+            double VPDsf = Rvpd * (dayLength / 24.0) + (1 - (dayLength / 24.0));
+            //Console.WriteLine(VPDsf+ " " + Rvpd + " " + dayLength);
+            double pawSF = (FPAW - lowerFPAW) / (upperFPAW - lowerFPAW);
+            if (FPAW > upperFPAW) pawSF = 1;
+            if (FPAW < lowerFPAW) pawSF = 0;
+
+            return (maxDF + (minDF - maxDF) * pawSF) * VPDsf;
+
+        }
+
+        //End of custom code. Do not place your custom code below. It will be overwritten by a future code generation.
+        //PLACE YOUR CUSTOM CODE ABOVE - GENERATED CODE START - Section2 
+    }
 }

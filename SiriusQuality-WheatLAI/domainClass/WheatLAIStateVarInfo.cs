@@ -9,15 +9,15 @@
 //------------------------------------------------------------------------------
 
 /// 
-/// This class was created from file C:\Users\mancealo\Documents\GitSiriusCode\SiriusCode\Development2\Code\SiriusQuality-WheatLAI\XML\SiriusQualityWheatLAI_WheatLAIState.xml
+/// This class was created from file C:\Users\loicm\GitSiriusCode\siriusquality-bioma-wheatpotentiallai-component\SiriusQuality-WheatLAI\XML\SiriusQualityWheatLAI_WheatLAIState.xml
 /// The tool used was: DCC - Domain Class Coder, http://components.biomamodelling.org/, DCC
 /// 
 /// Loic Manceau
-/// loic.manceau@inra.fr
-/// INRA
+/// loic.manceau@inrae.fr
+/// INRAE
 /// 
 /// 
-/// 10/4/2018 11:31:58 AM
+/// 20/10/2020 13:24:50
 /// 
 namespace SiriusQualityWheatLAI
 {
@@ -78,9 +78,13 @@ namespace SiriusQualityWheatLAI
         
         static VarInfo _TT = new VarInfo();
         
-        static VarInfo _incDeltaArea = new VarInfo();
+        static VarInfo _dayLength = new VarInfo();
+        
+        static VarInfo _avHourVPDDay = new VarInfo();
         
         static VarInfo _availableN = new VarInfo();
+        
+        static VarInfo _incDeltaArea = new VarInfo();
         #endregion
         
         /// <summary>Constructor</summary>
@@ -335,12 +339,21 @@ namespace SiriusQualityWheatLAI
             }
         }
         
-        /// <summary>Actual increase in Area of the day</summary>
-        public static  VarInfo incDeltaArea
+        /// <summary>Lenght of the day</summary>
+        public static  VarInfo dayLength
         {
             get
             {
-                return  _incDeltaArea;
+                return  _dayLength;
+            }
+        }
+        
+        /// <summary>Average VPD during the day</summary>
+        public static  VarInfo avHourVPDDay
+        {
+            get
+            {
+                return  _avHourVPDDay;
             }
         }
         
@@ -350,6 +363,15 @@ namespace SiriusQualityWheatLAI
             get
             {
                 return  _availableN;
+            }
+        }
+        
+        /// <summary>Actual increase in Area of the day</summary>
+        public static  VarInfo incDeltaArea
+        {
+            get
+            {
+                return  _incDeltaArea;
             }
         }
         #endregion
@@ -575,14 +597,23 @@ namespace SiriusQualityWheatLAI
             _TT.URL = "http://";
             _TT.ValueType = VarInfoValueTypes.GetInstanceForName("ListDouble");
             //   
-            _incDeltaArea.Name = "incDeltaArea";
-            _incDeltaArea.Description = "Actual increase in Area of the day";
-            _incDeltaArea.MaxValue = 1000D;
-            _incDeltaArea.MinValue = 0D;
-            _incDeltaArea.DefaultValue = 0D;
-            _incDeltaArea.Units = "m²/m²";
-            _incDeltaArea.URL = "http://";
-            _incDeltaArea.ValueType = VarInfoValueTypes.GetInstanceForName("Double");
+            _dayLength.Name = "dayLength";
+            _dayLength.Description = "Lenght of the day";
+            _dayLength.MaxValue = 24D;
+            _dayLength.MinValue = 0D;
+            _dayLength.DefaultValue = 12D;
+            _dayLength.Units = "h";
+            _dayLength.URL = "http://";
+            _dayLength.ValueType = VarInfoValueTypes.GetInstanceForName("Double");
+            //   
+            _avHourVPDDay.Name = "avHourVPDDay";
+            _avHourVPDDay.Description = "Average VPD during the day";
+            _avHourVPDDay.MaxValue = 100D;
+            _avHourVPDDay.MinValue = 0D;
+            _avHourVPDDay.DefaultValue = 0D;
+            _avHourVPDDay.Units = "hPa";
+            _avHourVPDDay.URL = "http://";
+            _avHourVPDDay.ValueType = VarInfoValueTypes.GetInstanceForName("Double");
             //   
             _availableN.Name = "availableN";
             _availableN.Description = "Available Nitrogen of the day";
@@ -592,6 +623,15 @@ namespace SiriusQualityWheatLAI
             _availableN.Units = "g/m²";
             _availableN.URL = "http://";
             _availableN.ValueType = VarInfoValueTypes.GetInstanceForName("Double");
+            //   
+            _incDeltaArea.Name = "incDeltaArea";
+            _incDeltaArea.Description = "Actual increase in Area of the day";
+            _incDeltaArea.MaxValue = 1000D;
+            _incDeltaArea.MinValue = 0D;
+            _incDeltaArea.DefaultValue = 0D;
+            _incDeltaArea.Units = "m²/m²";
+            _incDeltaArea.URL = "http://";
+            _incDeltaArea.ValueType = VarInfoValueTypes.GetInstanceForName("Double");
         }
         #endregion
     }

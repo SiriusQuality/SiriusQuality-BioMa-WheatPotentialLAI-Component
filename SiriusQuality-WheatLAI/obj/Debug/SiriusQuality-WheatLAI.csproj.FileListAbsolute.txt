@@ -54,3 +54,10 @@ C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-
 C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\obj\Debug\SiriusQuality-WheatLAI.dll
 C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\obj\Debug\SiriusQuality-WheatLAI.pdb
 C:\Users\mancealo\Documents\GitSiriusCode\SiriusQuality-BioMa-WheatPotentialLAI-Component\SiriusQuality-WheatLAI\obj\Debug\SiriusQuality-WheatLAI.csprojResolveAssemblyReference.cache
+C:\Users\loicm\GitSiriusCode\siriusquality-bioma-wheatpotentiallai-component\SiriusQuality-WheatLAI\bin\Debug\SiriusQuality-WheatLAI.dll
+C:\Users\loicm\GitSiriusCode\siriusquality-bioma-wheatpotentiallai-component\SiriusQuality-WheatLAI\bin\Debug\SiriusQuality-WheatLAI.pdb
+C:\Users\loicm\GitSiriusCode\siriusquality-bioma-wheatpotentiallai-component\SiriusQuality-WheatLAI\obj\Debug\SiriusQuality-WheatLAI.csprojAssemblyReference.cache
+C:\Users\loicm\GitSiriusCode\siriusquality-bioma-wheatpotentiallai-component\SiriusQuality-WheatLAI\obj\Debug\SiriusQuality-WheatLAI.csproj.CoreCompileInputs.cache
+C:\Users\loicm\GitSiriusCode\siriusquality-bioma-wheatpotentiallai-component\SiriusQuality-WheatLAI\obj\Debug\SiriusQuality-WheatLAI.csproj.CopyComplete
+C:\Users\loicm\GitSiriusCode\siriusquality-bioma-wheatpotentiallai-component\SiriusQuality-WheatLAI\obj\Debug\SiriusQuality-WheatLAI.dll
+C:\Users\loicm\GitSiriusCode\siriusquality-bioma-wheatpotentiallai-component\SiriusQuality-WheatLAI\obj\Debug\SiriusQuality-WheatLAI.pdb

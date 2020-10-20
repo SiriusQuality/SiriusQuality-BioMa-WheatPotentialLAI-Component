@@ -107,7 +107,7 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
 
             public void Estimate(bool newLeafHasAppeared, int roundedFinalNumber, double finalLeafNumber, double leafNumber,
                                  int newLeafLastPhytoNum, int newLeafindex,double FPAW, bool isPotentialLAI, double cumulTTShoot, double deltaTTShoot, double deltaTTSenescence, List<LeafLayer> All, double VPDairCanopy,
-                                  List<double> tilleringProfile, List<double> leafTillerNumberArray)
+                                  List<double> tilleringProfile, List<double> leafTillerNumberArray,double dayLength, double aVPDDayLength)
             {
 
                     //Valorize inputs
@@ -116,6 +116,8 @@ namespace SiriusQuality_SiriusQuality_WheatLAIConsole
                     wheatLaistate_.finalLeafNumber = finalLeafNumber;
                     wheatLaistate_.leafNumber = leafNumber;
                     wheatLaistate_.FPAW = FPAW;
+                    wheatLaistate_.dayLength = dayLength;
+                    wheatLaistate_.avHourVPDDay = aVPDDayLength;
                     wheatLaistate_.isPotentialLAI = isPotentialLAI ? 1 : 0;
                     wheatLaistate_.cumulTTShoot = cumulTTShoot;
                     wheatLaistate_.deltaTTShoot = deltaTTShoot;

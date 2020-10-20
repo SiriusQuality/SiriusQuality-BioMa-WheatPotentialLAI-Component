@@ -9,15 +9,15 @@
 //------------------------------------------------------------------------------
 
 /// 
-/// This class was created from file C:\Users\mancealo\Documents\GitSiriusCode\SiriusCode\Development2\Code\SiriusQuality-WheatLAI\XML\SiriusQualityWheatLAI_WheatLAIState.xml
+/// This class was created from file C:\Users\loicm\GitSiriusCode\siriusquality-bioma-wheatpotentiallai-component\SiriusQuality-WheatLAI\XML\SiriusQualityWheatLAI_WheatLAIState.xml
 /// The tool used was: DCC - Domain Class Coder, http://components.biomamodelling.org/, DCC
 /// 
 /// Loic Manceau
-/// loic.manceau@inra.fr
-/// INRA
+/// loic.manceau@inrae.fr
+/// INRAE
 /// 
 /// 
-/// 10/4/2018 11:31:58 AM
+/// 20/10/2020 13:24:50
 /// 
 namespace SiriusQualityWheatLAI
 {
@@ -82,9 +82,13 @@ namespace SiriusQualityWheatLAI
         
         private System.Collections.Generic.List<double> _TT = new List<double>();
         
-        private double _incDeltaArea;
+        private double _dayLength;
+        
+        private double _avHourVPDDay;
         
         private double _availableN;
+        
+        private double _incDeltaArea;
         #endregion
         
         #region Private field for properties
@@ -100,64 +104,52 @@ namespace SiriusQualityWheatLAI
 
         public WheatLAIState(WheatLAIState toCopy)
         {
-                _newLeafHasAppeared = toCopy.newLeafHasAppeared;
 
-                _leafNumber = toCopy.leafNumber;
+            _dayLength = toCopy._dayLength;
+            _avHourVPDDay = toCopy._avHourVPDDay;
+            _newLeafHasAppeared = toCopy.newLeafHasAppeared;
+            _leafNumber = toCopy.leafNumber;
+            _finalLeafNumber = toCopy.finalLeafNumber;
+            _roundedFinalLeafNumber = toCopy.roundedFinalLeafNumber;
+            _phytonum = toCopy.phytonum;
+            _index = toCopy.index;
+            _FPAW = toCopy.FPAW;
+            _isPotentialLAI = toCopy.isPotentialLAI;
+            _VPDairCanopy = toCopy.VPDairCanopy;
+            _DSF = toCopy.DSF;
+            _DEF = toCopy.DEF;
+            _cumulTTShoot = toCopy.cumulTTShoot;
+            _deltaTTShoot = toCopy.deltaTTShoot;
+            _deltaTTSenescence = toCopy.deltaTTSenescence;
+            _incDeltaAreaLimitSF = toCopy.incDeltaAreaLimitSF;
+            _potentialIncDeltaArea = toCopy.potentialIncDeltaArea;
+            _incDeltaArea = toCopy._incDeltaArea;
+            _availableN = toCopy._availableN;
 
-                _finalLeafNumber = toCopy.finalLeafNumber;
+            System.Collections.Generic.List<double> _tilleringProfile = new List<double>();
+            for (int i = 0; i < toCopy._tilleringProfile.Count; i++) _tilleringProfile.Add(toCopy._tilleringProfile[i]);
+            System.Collections.Generic.List<double> _leafTillerNumberArray = new List<double>();
+            for (int i = 0; i < toCopy._leafTillerNumberArray.Count; i++) _leafTillerNumberArray.Add(toCopy._leafTillerNumberArray[i]);
+            System.Collections.Generic.List<double> _MaximumPotentialLaminaeAI = new List<double>();
+            for (int i = 0; i < toCopy._MaximumPotentialLaminaeAI.Count; i++) _MaximumPotentialLaminaeAI.Add(toCopy._MaximumPotentialLaminaeAI[i]);
+            System.Collections.Generic.List<double> _MaximumPotentialSheathAI = new List<double>();
+            for (int i = 0; i < toCopy._MaximumPotentialSheathAI.Count; i++) _MaximumPotentialSheathAI.Add(toCopy._MaximumPotentialSheathAI[i]);
+            System.Collections.Generic.List<double> _WaterLimitedPotDeltaAIList = new List<double>();
+            for (int i = 0; i < toCopy._WaterLimitedPotDeltaAIList.Count; i++) _WaterLimitedPotDeltaAIList.Add(toCopy._WaterLimitedPotDeltaAIList[i]);
+            _previousIndex = toCopy._previousIndex;
+            System.Collections.Generic.List<double> _TTgroSheathList = new List<double>();
+            for (int i = 0; i < toCopy._TTgroSheathList.Count; i++) _TTgroSheathList.Add(toCopy._TTgroSheathList[i]);
+            System.Collections.Generic.List<double> _TT = new List<double>();
+            for (int i = 0; i < toCopy._TT.Count; i++) _TTgroSheathList.Add(toCopy._TT[i]);
 
-                _roundedFinalLeafNumber = toCopy.roundedFinalLeafNumber;
-
-                _phytonum = toCopy.phytonum;
-
-                _index = toCopy.index;
-
-                _FPAW = toCopy.FPAW;
-
-                _isPotentialLAI = toCopy.isPotentialLAI;
-
-                _VPDairCanopy = toCopy.VPDairCanopy;
-
-                _DSF = toCopy.DSF;
-
-                _DEF = toCopy.DEF;
-
-                _cumulTTShoot = toCopy.cumulTTShoot;
-
-                _deltaTTShoot = toCopy.deltaTTShoot;
-
-                _deltaTTSenescence = toCopy.deltaTTSenescence;
-
-                _incDeltaAreaLimitSF = toCopy.incDeltaAreaLimitSF;
-
-                _potentialIncDeltaArea = toCopy.potentialIncDeltaArea;
-
-                System.Collections.Generic.List<double> _tilleringProfile = new List<double>(toCopy._tilleringProfile);
-
-                System.Collections.Generic.List<double> _leafTillerNumberArray = new List<double>(toCopy._leafTillerNumberArray);
-
-                System.Collections.Generic.List<double> _MaximumPotentialLaminaeAI = new List<double>(toCopy._MaximumPotentialLaminaeAI);
-                
-                System.Collections.Generic.List<double> _MaximumPotentialSheathAI = new List<double>(toCopy._MaximumPotentialSheathAI);
-                
-                System.Collections.Generic.List<double> _WaterLimitedPotDeltaAIList = new List<double>(toCopy._WaterLimitedPotDeltaAIList);
-                
-                System.Collections.Generic.List<double> _TTgroSheathList = new List<double>(toCopy._TTgroSheathList);
-
-                System.Collections.Generic.List<double> _TT = new List<double>(toCopy._TT);
-
-                _previousIndex = toCopy._previousIndex;
-                
-                _incDeltaArea = toCopy._incDeltaArea;
-                
-                _availableN = toCopy._availableN;
 
         }
 
+
         #endregion
-        
-        #region Public properties
-        /// <summary>0: if no leaf has appeared, 1 if a leaf has just appeared</summary>
+
+            #region Public properties
+            /// <summary>0: if no leaf has appeared, 1 if a leaf has just appeared</summary>
         public int newLeafHasAppeared
         {
             get
@@ -469,16 +461,29 @@ namespace SiriusQualityWheatLAI
             }
         }
         
-        /// <summary>Actual increase in Area of the day</summary>
-        public double incDeltaArea
+        /// <summary>Lenght of the day</summary>
+        public double dayLength
         {
             get
             {
-                return this._incDeltaArea;
+                return this._dayLength;
             }
             set
             {
-                this._incDeltaArea = value;
+                this._dayLength = value;
+            }
+        }
+        
+        /// <summary>Average VPD during the day</summary>
+        public double avHourVPDDay
+        {
+            get
+            {
+                return this._avHourVPDDay;
+            }
+            set
+            {
+                this._avHourVPDDay = value;
             }
         }
         
@@ -492,6 +497,19 @@ namespace SiriusQualityWheatLAI
             set
             {
                 this._availableN = value;
+            }
+        }
+        
+        /// <summary>Actual increase in Area of the day</summary>
+        public double incDeltaArea
+        {
+            get
+            {
+                return this._incDeltaArea;
+            }
+            set
+            {
+                this._incDeltaArea = value;
             }
         }
         #endregion
@@ -552,8 +570,10 @@ namespace SiriusQualityWheatLAI
             _previousIndex = default(System.Int32);
             _TTgroSheathList = new List<double>();
             _TT = new List<double>();
-            _incDeltaArea = default(System.Double);
+            _dayLength = default(System.Double);
+            _avHourVPDDay = default(System.Double);
             _availableN = default(System.Double);
+            _incDeltaArea = default(System.Double);
             // Returns true if everything is ok
             return true;
         }

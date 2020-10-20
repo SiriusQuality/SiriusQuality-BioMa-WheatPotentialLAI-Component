@@ -594,22 +594,22 @@ namespace SiriusQualityWheatLAI.Strategies
 			/// </summary>
 			public void Estimate(SiriusQualityWheatLAI.WheatLAIState wheatlaistate,SiriusQualityWheatLAI.WheatLeafState wheatleafstate,SiriusQualityWheatLAI.WheatLeafState wheatleafstate1,CRA.AgroManagement.ActEvents actevents)
 			{
-				try
-				{
-					CalculateModel(wheatlaistate,wheatleafstate,wheatleafstate1,actevents);
+            try
+            {
+                CalculateModel(wheatlaistate, wheatleafstate, wheatleafstate1, actevents);
 
-					//Uncomment the next line to use the trace
-					//TraceStrategies.TraceEvent(System.Diagnostics.TraceEventType.Verbose, 1005,"Strategy: " + this.GetType().Name + " - Model executed");
-				}
-				catch (Exception exception)
-				{
-					//Uncomment the next line to use the trace
-					//TraceStrategies.TraceEvent(System.Diagnostics.TraceEventType.Error, 1003,		"Strategy: " + this.GetType().Name + " - Unhandled exception running model");
+                //Uncomment the next line to use the trace
+                //TraceStrategies.TraceEvent(System.Diagnostics.TraceEventType.Verbose, 1005,"Strategy: " + this.GetType().Name + " - Model executed");
+            }
+            catch (Exception exception)
+            {
+                //Uncomment the next line to use the trace
+                //TraceStrategies.TraceEvent(System.Diagnostics.TraceEventType.Error, 1003,		"Strategy: " + this.GetType().Name + " - Unhandled exception running model");
 
-					string msg = "Error in component SiriusQualityWheatLAI.Strategies, strategy: " + this.GetType().Name + ": Unhandled exception running model. "+exception.GetType().FullName+" - "+exception.Message;				
-					throw new Exception(msg, exception);
-				}
-			}
+                string msg = "Error in component SiriusQualityWheatLAI.Strategies, strategy: " + this.GetType().Name + ": Unhandled exception running model. " + exception.GetType().FullName + " - " + exception.Message;
+                throw new Exception(msg, exception);
+            }
+}
 
 		
 
